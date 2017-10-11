@@ -2,8 +2,6 @@ package pl.halun.tools.s3upload.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,8 +28,8 @@ public class AwsConfiguration {
     @Bean
     public AmazonS3 amazonS3() {
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials())).build();
-        s3Client.setRegion(Region.getRegion(Regions.fromName(region)));
+                .withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials()))
+                .withRegion(region).build();
         return s3Client;
     }
 }
