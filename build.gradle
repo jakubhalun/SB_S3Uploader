@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-group = 'pl.halun.tools'
+group = 'pl.halun.tools.s3upload'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
