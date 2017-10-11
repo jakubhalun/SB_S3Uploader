@@ -25,6 +25,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
     compile('com.amazonaws:aws-java-sdk:1.11.211')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 }
 
 
