@@ -13,21 +13,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-
 @Controller
 public class UploadController {
-
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
-
     @Autowired
     private AmazonS3 s3client;
-
     @GetMapping("/")
     public String index() {
         return "upload";
     }
-
     @PostMapping("/upload")
     public String fileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         if (file.isEmpty()) {
@@ -35,6 +30,7 @@ public class UploadController {
             return "redirect:status";
         }
         ObjectMetadata objectMetadata = new ObjectMetadata();
+
         objectMetadata.setContentType(file.getContentType());
 
         try {
@@ -46,7 +42,6 @@ public class UploadController {
 
         return "redirect:/status";
     }
-
     @GetMapping("/status")
     public String uploadStatus() {
         return "status";

@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.3.RELEASE'
+		springBootVersion = '2.7.2'
 	}
 	repositories {
 		mavenCentral()
@@ -15,18 +15,17 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'pl.halun.tools.s3upload'
-version = '0.0.1'
-sourceCompatibility = 1.8
+java {
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
+}
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-    compile('com.amazonaws:aws-java-sdk:1.11.355')
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation('com.amazonaws:aws-java-sdk:1.12.268')
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 }
-
-
